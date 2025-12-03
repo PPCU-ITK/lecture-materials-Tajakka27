@@ -24,16 +24,17 @@ int my_strlen(const char* str) {
     //       the next character.
 
     // TODO: Write your while-loop here.
-    // while (*str != '\0') {
-    //    ...
-    //    ...
-    // }
+    while (*str != '\0') {
+       
+        length++;
+        str++;
+    }
 
 
     // 4. Return the final length.
     return length;
 }
-
+#include <cstring>
 
 int main() {
     char greeting[] = "Hello, C++!";
@@ -44,8 +45,8 @@ int main() {
     std::cout << "My length is:  " << len << std::endl;
     // Note: The standard library has 'strlen' in <cstring>
     // Let's see if we match!
-    // #include <cstring>
-    // std::cout << "Std length is: " << strlen(greeting) << std::endl;
+    
+    std::cout << "Std length is: " << strlen(greeting) << std::endl;
 
     return 0;
 }

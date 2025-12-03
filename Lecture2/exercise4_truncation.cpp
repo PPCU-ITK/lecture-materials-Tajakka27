@@ -56,15 +56,15 @@ int main() {
     // Implicit conversion: 'precise_average' (a 'double') is
     // "truncated" to fit into an 'int' box.
     int final_grade_int = precise_average;
-
+     int rounded_grade = (precise_average + 0.5);
     std::cout << "The truncated integer grade is: " << final_grade_int << std::endl;
-
+    
     // --- TASK 2: Use static_cast to round properly ---
     
     // int rounded_grade = ...
     
     // --- TASK 3: Print your rounded grade ---
-    // std::cout << "The rounded grade is: " << rounded_grade << std::endl;
+    std::cout << "The rounded grade is: " << rounded_grade << std::endl;
     
 
     std::cout << "------------------------------------" << std::endl;

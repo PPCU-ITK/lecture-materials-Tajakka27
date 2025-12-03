@@ -27,12 +27,14 @@ void my_strcpy(char* destination, const char* source) {
     //       and 'source' pointers.
 
     // TODO: Write your while-loop here.
-    // while (true) {
-    //    ...
-    //    ...
-    //    ...
-    //    ...
-    // }
+    while (true) {
+       
+       *destination = *source;
+       if (*source=='\0')break;
+       destination++;
+       source++;
+       
+    }
 }
 
 int main() {

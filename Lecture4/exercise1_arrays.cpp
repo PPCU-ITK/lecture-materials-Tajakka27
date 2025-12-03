@@ -13,7 +13,10 @@ int main() {
 
     // 3. Write a standard for-loop to iterate through the array.
     //    The loop should go from i = 0 up to (but not including) n.
-    //
+    for (int i=0; i<n;i++)
+    {
+         std::cout << data[i] << " ";
+    }
     // 4. Inside the loop, print the element at the current index
     //    using the [ ] operator (e.g., data[i]).
 

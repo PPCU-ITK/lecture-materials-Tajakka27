@@ -40,18 +40,20 @@ int main() {
     std::cout << "x is: " << x << std::endl;
 
     // --- TASK 2: Fix this line ---
-    x = "hello"; // This is the "Python" way, but it's illegal in C++!
+    //x = "hello"; // This is the "Python" way, but it's illegal in C++!
     // ---
     
     std::cout << "Now x is: " << x << std::endl;
 
     // --- TASK 3: Add more variables here ---
-    // double pi = ...
-    // char initial = ...
-    // bool is_cpp_fun = ...
+    double pi = 3.14159;
+    char initial = 'T';
+    bool is_cpp_fun = 1;
     
     // --- TASK 4: Print your new variables here ---
-    // std::cout << "Pi is: " << pi << std::endl;
+    std::cout << "Pi is: " << pi << std::endl;
+    std::cout << "initial is: " << initial << std::endl;
+    std::cout << "is_cpp_fun is: " << is_cpp_fun << std::endl;
     // ...
     
     std::cout << "---------------------------------------" << std::endl;

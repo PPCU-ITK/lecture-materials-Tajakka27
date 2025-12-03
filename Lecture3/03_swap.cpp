@@ -7,6 +7,9 @@
 
 void swap_fruit(int* a, int* b) {
     // Your code here
+    int temp=*a;
+    *a=*b;
+    *b=temp;
 }
 
 int main() {
@@ -16,7 +19,7 @@ int main() {
     std::cout << "Before Swap -> Apple: " << apple << ", Orange: " << orange << std::endl;
 
     // TODO 2: Call swap_fruit passing the addresses of apple and orange.
-    
+    swap_fruit(&apple,&orange);
 
     std::cout << "After Swap  -> Apple: " << apple << ", Orange: " << orange << std::endl;
 

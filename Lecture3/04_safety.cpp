@@ -10,10 +10,11 @@ int main() {
 
     // UNCOMMENT the lines below to see the crash, then FIX IT.
     
-    /*
+    
     std::cout << "Attempting to write to address: " << ptr << std::endl;
+    ptr=&power_level;
     *ptr = 9001; // <--- CRASH HAPPENS HERE (Segmentation Fault)
-    */
+    
 
     // TODO: Fix the crash by ensuring 'ptr' points to 'power_level' 
     // BEFORE we try to write to *ptr.

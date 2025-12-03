@@ -29,6 +29,7 @@
 
 #include <iostream>
 #include <string> // We need this for std::string
+#include <typeinfo>
 
 int main() {
     std::cout << "--- Exercise 2: The 'auto' Trap ---" << std::endl;
@@ -38,7 +39,7 @@ int main() {
     std::cout << "my_variable is: " << my_variable << std::endl;
 
     // --- TASK 2: Fix this line ---
-    my_variable = "now I'm a string!"; // ILLEGAL! my_variable is an 'int' forever.
+    //my_variable = "now I'm a string!"; // ILLEGAL! my_variable is an 'int' forever.
     // ---
     
     std::cout << "my_variable is now: " << my_variable << std::endl;
@@ -46,11 +47,11 @@ int main() {
 
     // --- TASK 3: Predict the type for these 'auto' variables ---
 
-    // auto var_a = 3.14f; // I predict 'var_a' will be:
-    // auto var_b = "hello world"; // I predict 'var_b' will be: (Hint: it's not std::string!)
-    // auto var_c = 'z'; // I predict 'var_c' will be:
-    // auto var_d = 1.234; // I predict 'var_d' will be:
-    // auto var_e = true; // I predict 'var_e' will be:
+    auto var_a = 3.14f; // I predict 'var_a' will be:
+    auto var_b = "hello world"; // I predict 'var_b' will be: (Hint: it's not std::string!)
+    auto var_c = 'z'; // I predict 'var_c' will be:
+    auto var_d = 1.234; // I predict 'var_d' will be:
+    auto var_e = true; // I predict 'var_e' will be:
 
 
     // --- BONUS ---
@@ -58,6 +59,7 @@ int main() {
     // from this?
     // std::string s = "hello world";
     // auto var_s = s; // I predict 'var_s' will be:
+    std::cout << typeid(var_b).name() << std::endl;
 
     std::cout << "-----------------------------------" << std::endl;
     return 0;
