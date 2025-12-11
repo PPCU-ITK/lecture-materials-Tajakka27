@@ -11,9 +11,9 @@ public:
     // TODO: Fix this constructor!
     // Currently, this will cause a compiler error because you cannot 
     // assign to a const variable inside the body.
-    // Use a Member Initializer List ( : m_gravity(g) ) instead.
-    Planet(std::string name, double g) {
-        m_name = name;
+    // Use a Member Initializer List ( ) instead.
+    Planet(std::string name, double g)  : m_name(name),m_gravity(g) {
+        
         // m_gravity = g; // DELETE THIS LINE and use initializer list
     }
 
@@ -23,11 +23,11 @@ public:
 };
 
 int main() {
-    // Planet earth("Earth", 9.81);
-    // earth.print_info();
+    Planet earth("Earth", 9.81);
+    earth.print_info();
     
-    // Planet mars("Mars", 3.72);
-    // mars.print_info();
+    Planet mars("Mars", 3.72);
+    mars.print_info();
 
     return 0;
 }

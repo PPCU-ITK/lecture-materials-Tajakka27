@@ -17,7 +17,8 @@ public:
     // It MUST delete the pointer m_ptr to prevent memory leaks.
     // Print "Deleting memory" so we can see it happen.
     ~HeapWrapper() {
-        
+        delete m_ptr;
+         std::cout<< "Deleting memory" << std::endl;
     }
 
     void print_value() {

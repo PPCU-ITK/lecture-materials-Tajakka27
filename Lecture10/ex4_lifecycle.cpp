@@ -9,6 +9,10 @@ public:
     LoudObject(std::string name) : m_name(name) {
         std::cout << "Born: " << m_name << std::endl;
     }
+    ~LoudObject() {
+        std::cout << "Died: " << m_name << std::endl;
+    }
+
     
     // TODO: Implement the Destructor (~LoudObject)
     // It should print "Died: " followed by m_name

@@ -13,18 +13,24 @@ public:
     // TODO: Implement set_temperature
     // Rule: If temp < -273.15, print an error and DO NOT update m_celsius.
     void set_temperature(double c) {
-        // Logic goes here
+        if (c<-273.16){
+            std::cout << "Error: Temperature below absolute zero!" << std::endl;
+            return;
+        }
+        else{
+            m_celsius=c;
+        }
     }
 
     // TODO: Implement get_celsius (Simple getter)
     double get_celsius() {
-        return 0.0; // Placeholder
+        return m_celsius; // Placeholder
     }
 
     // TODO: Implement get_fahrenheit
     // Formula: (Celsius * 9.0/5.0) + 32
     double get_fahrenheit() {
-        return 0.0; // Placeholder
+        return (m_celsius * 9.0/5.0) + 32; // Placeholder
     }
 };
 
