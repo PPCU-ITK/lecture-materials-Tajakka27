@@ -18,9 +18,12 @@ int main() {
 
     // 5. Modify 'alias' to 30
     // TODO: Your code here
+    alias = 30;
 
     // 6. Print both 'original' and 'alias' again
     std::cout << "--- After modifying alias ---" << std::endl;
+    std::cout << "Original: " << original << std::endl;
+    std::cout << "Alias:    " << alias << std::endl;
     // TODO: Your code here
 
     return 0;

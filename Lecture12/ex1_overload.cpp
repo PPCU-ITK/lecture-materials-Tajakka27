@@ -8,6 +8,14 @@ void print_data(int i) {
     std::cout << "[Integer]: " << i << "\n";
 }
 
+void print_data(std::string& s) {
+    std::cout << "[String]: " << s << "\n";
+}
+
+void print_data(double d) {
+    std::cout << "[Double]: " << d << "\n";
+}
+
 // TODO: Add an overload for std::string
 // Hint: Use const std::string& for efficiency
 
@@ -23,8 +31,8 @@ int main() {
     print_data(my_int);    // Calls int version
     
     // UNCOMMENT these lines after implementing the overloads
-    // print_data(my_string); // Should call string version
-    // print_data(my_double); // Should call double version
+    print_data(my_string); // Should call string version
+    print_data(my_double); // Should call double version
 
     return 0;
 }

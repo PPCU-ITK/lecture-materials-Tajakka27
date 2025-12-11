@@ -8,41 +8,33 @@ struct Student {
 };
 
 /**
- * @brief Sets up the student database.
- * * THIS FUNCTION CONTAINS A CRITICAL FLAW.
- * It returns a pointer to memory on its own STACK.
+ * @brief Sets up the student database correctly.
+ * Returns a std::vector<Student> by value.
  */
-Student* setup_database() {
-    // 'student_db' is a LOCAL ARRAY. It lives on the STACK.
-    Student student_db[] = {
+std::vector<Student> setup_database() {
+    // single vector on the stack
+    std::vector<Student> student_db = {
         {201, "David"},
         {202, "Eve"}
     };
+
     std::cout << "Inside setup_database():" << std::endl;
-    std::cout << "  'student_db' array is at address: " << &student_db << std::endl;
+    std::cout << "  'student_db' data is at address: " << student_db.data() << std::endl;
 
-    // We return a pointer to the first element
-    return &student_db[0];
-
-} // 'student_db' is DESTROYED here. The stack memory is reclaimed.
+    return student_db;  // vector is copied or moved. safe
+}
 
 int main() {
     std::cout << "Calling setup_database()..." << std::endl;
-    Student* p_db = setup_database();
-    
+    std::vector<Student> db = setup_database();
+
     std::cout << "\nIn main():" << std::endl;
-    std::cout << "  p_db pointer holds address: " << p_db << std::endl;
+    std::cout << "  db.data() holds address: " << db.data() << std::endl;
 
-    // DANGER: We are dereferencing a DANGLING POINTER.
-    // The memory at p_db is no longer valid.
-    // This is Undefined Behavior!
-    std::cout << "  Accessing dangling pointer... " << std::endl;
-    std::cout << "  Found student: " << p_db->name << std::endl; // CRASH or GARBAGE
+    std::cout << "  Accessing valid data... " << std::endl;
+    if (!db.empty()) {
+        std::cout << "  Found student: " << db[0].name << std::endl;
+    }
 
-    // TASK: 
-    // 1. Explain why this code is broken.
-    // 2. Fix it. The best fix is to change 'setup_database' to return
-    //    a 'std::vector<Student>' by value and update 'main' accordingly.
-    
     return 0;
 }

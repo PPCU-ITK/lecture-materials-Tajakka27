@@ -6,7 +6,7 @@ class Shape {
 public:
     // TODO: Turn this into a Pure Virtual Function.
     // virtual double area() ... ?
-    double area() {
+   virtual double area() {
         return 0.0;
     }
 };
@@ -16,7 +16,9 @@ class Rectangle : public Shape {
 public:
     Rectangle(double w, double h) : width(w), height(h) {}
     
-    // TODO: Implement area() override
+    double area() override {
+        return width * height;
+    }
 };
 
 class Circle : public Shape {
@@ -25,6 +27,9 @@ public:
     Circle(double r) : radius(r) {}
 
     // TODO: Implement area() override (Area = 3.14 * radius * radius)
+    double area() override {
+        return 3.14 * radius * radius;
+    }
 };
 
 int main() {

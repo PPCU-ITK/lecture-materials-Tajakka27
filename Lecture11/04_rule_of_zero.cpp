@@ -12,31 +12,31 @@
 // TODO: Refactor this class
 class Logger {
 private:
-    int* logID; // Change this to std::unique_ptr<int>
+    std::unique_ptr<int> logID; 
 
 public:
-    Logger(int id) {
-        logID = new int(id); // Change to std::make_unique<int>(id)
-    }
+    Logger(int id)
+        : logID(std::make_unique<int>(id)) // safe allocation
+    {}
 
     // --- DELETE EVERYTHING BELOW THIS LINE AFTER REFACTORING ---
     // With unique_ptr, you don't need ANY of these!
 
-    ~Logger() {
-        delete logID;
-    }
+    // ~Logger() {
+    //     delete logID;
+    // }
 
-    Logger(const Logger& other) {
-        logID = new int(*other.logID);
-        std::cout << "Manual Copy Constructor called\n";
-    }
+    // Logger(const Logger& other) {
+    //     logID = new int(*other.logID);
+    //     std::cout << "Manual Copy Constructor called\n";
+    // }
 
-    Logger& operator=(const Logger& other) {
-        if (this == &other) return *this;
-        delete logID;
-        logID = new int(*other.logID);
-        return *this;
-    }
+    // Logger& operator=(const Logger& other) {
+    //     if (this == &other) return *this;
+    //     delete logID;
+    //     logID = new int(*other.logID);
+    //     return *this;
+    // }
     // -----------------------------------------------------------
 
     void log(std::string msg) {

@@ -20,7 +20,7 @@ int main() {
     // TODO: FIX THIS LOOP
     // Currently, 'score' is a COPY of the data.
     // Changing 'score' does not change the vector.
-    for (auto score : scores) {
+    for (auto &score : scores) {
         score = score * 2;
     }
 

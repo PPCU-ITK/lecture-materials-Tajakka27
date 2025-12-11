@@ -26,13 +26,15 @@ public:
     Resource& operator=(const Resource& other) {
         std::cout << "Assignment Operator Called...\n";
         
-        // STEP 1: We delete our current data
-        // (PROBLEM: If other == *this, we just deleted the data we wanted to copy!)
-        delete value; 
+         if (this == &other) {
+            std::cout << "  Self-assignment detected. Skipping.\n";
+            return *this;
+        }
 
-        // STEP 2: We try to copy from 'other'
+        delete value;
+
         std::cout << "Copying from address: " << other.value << "...\n";
-        value = new int(*other.value); 
+        value = new int(*other.value);
 
         return *this;
     }

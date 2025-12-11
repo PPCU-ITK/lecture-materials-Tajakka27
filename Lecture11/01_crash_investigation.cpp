@@ -19,6 +19,16 @@ public:
         for(int i=0; i<size; i++) data[i] = 7; // Fill with 7s
     }
 
+    // Copy constructor. Deep copy
+    UnsafeBuffer(const UnsafeBuffer& other)
+        : size(other.size)
+    {
+        std::cout << "[Copying buffer of size " << size << "]\n";
+        data = new int[size];
+        for (int i = 0; i < size; ++i) {
+            data[i] = other.data[i];
+        }
+    }
     // Destructor
     ~UnsafeBuffer() {
         std::cout << "[Deleting Data at " << data << "]\n";

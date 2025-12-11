@@ -44,7 +44,9 @@ int main() {
     
     // TASK: This line will crash the program.
     // Explain why, and then add a check to prevent the crash.
-    std::cout << "Found: " << p_student->name << std::endl;
+    if  (p_student != nullptr) {
+        std::cout << "Found: " << p_student->name << std::endl;
+    }
     
     
     std::cout << "----------------------------------\n" << std::endl;

@@ -14,10 +14,29 @@ void analyze_data(const std::vector<int>& data) {
     // Hint: Iterate and sum, or use std::accumulate
 
     // TODO: Find the min and max elements
-    int min_val = 0;
+    int size=0;
+    int min_val = 999999;
     int max_val = 0;
     // Hint: You can iterate, or use std::min_element / std::max_element
+    for (double val : data) {
+        mean+=val;
+        size++;
+        if (val<min_val){
+            min_val=val;
+        }
+        if (val>max_val){
+            max_val=val; 
+        }          
+    }
+    mean/=size;
 
+
+    //  // Mean
+    // double mean = std::accumulate(data.begin(), data.end(), 0.0) / data.size();
+
+    // // Min and Max
+    // int min_val = *std::min_element(data.begin(), data.end());
+    // int max_val = *std::max_element(data.begin(), data.end());
     std::cout << "Statistics:" << std::endl;
     std::cout << "  Count: " << data.size() << std::endl;
     std::cout << "  Mean:  " << mean << std::endl;

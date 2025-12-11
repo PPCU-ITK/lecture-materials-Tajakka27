@@ -8,7 +8,7 @@ class Character {
 public:
     // TODO: Fix the "Static Binding" problem here.
     // We want the derived classes to handle the attack.
-    void attack() { 
+    virtual void attack() { 
         std::cout << "Generic character swings a fist.\n";
     }
 };
@@ -16,7 +16,7 @@ public:
 class Warrior : public Character {
 public:
     // TODO: Add the 'override' keyword for best practices
-    void attack() {
+    void attack() override{
         std::cout << "Warrior swings a GIANT SWORD!\n";
     }
 };
@@ -24,7 +24,7 @@ public:
 class Mage : public Character {
 public:
     // TODO: Add the 'override' keyword for best practices
-    void attack() {
+    void attack() override{
         std::cout << "Mage casts a FIREBALL!\n";
     }
 };

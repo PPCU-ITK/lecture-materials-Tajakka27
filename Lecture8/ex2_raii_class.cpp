@@ -16,15 +16,20 @@ class ServerConnection {
     std::string server_id;
 public:
     // 1. Constructor should accept an ID and call connect_to_server
-    
+    ServerConnection(const std::string& id) : server_id(id) {
+        connect_to_server(server_id);
+    }
     // 2. Destructor should call disconnect_from_server
+    ~ServerConnection() {
+        disconnect_from_server(server_id);
+    }
 };
 
 void business_logic() {
     std::cout << "Doing some work inside business_logic...\n";
     
     // TODO: Instantiate your ServerConnection class here.
-    // Example: ServerConnection conn("DB_Main");
+    ServerConnection conn("DB_Main");
     
     // When this function returns, the destructor should trigger automatically.
 }

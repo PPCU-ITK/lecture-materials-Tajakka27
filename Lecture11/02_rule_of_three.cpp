@@ -24,13 +24,16 @@ public:
     // TODO: Free the memory pointed to by 'arr'
     ~DynamicArray() {
         // Your code here
+        delete[] arr;
     }
 
     // 2. COPY CONSTRUCTOR
     // TODO: Create a new array of 'size', and copy elements from 'other'
-    DynamicArray(const DynamicArray& other) {
-        // Your code here
+    DynamicArray(const DynamicArray& other)
+        : arr(new int[other.size]), size(other.size) {
+        std::copy(other.arr, other.arr + size, arr);
     }
+
 
     // 3. COPY ASSIGNMENT OPERATOR
     // TODO: 
@@ -38,10 +41,21 @@ public:
     //    b. Delete old memory
     //    c. Allocate new memory and copy data
     //    d. Return *this
+    
     DynamicArray& operator=(const DynamicArray& other) {
-        // Your code here
-        return *this; // Placeholder
+        if (this == &other) {
+            return *this;
+        }
+
+        delete[] arr;
+
+        size = other.size;
+        arr = new int[size];
+        std::copy(other.arr, other.arr + size, arr);
+
+        return *this;
     }
+
 
     // Helper to print
     void print(const char* name) {

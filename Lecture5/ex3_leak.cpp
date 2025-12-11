@@ -22,6 +22,8 @@ void leaky_function() {
 
     // TODO: Add the one line of code needed to fix this memory leak
     // before the function ends.
+    delete[] p;
+    p = nullptr;
 
 
     std::cout << "leaky_function() ending..." << std::endl;

@@ -24,15 +24,15 @@ int main() {
         std::cout << "Allocating memory...\n";
         
         // TODO: Replace the following two lines with std::unique_ptr
-        IntegerWrapper* raw_ptr = new IntegerWrapper(42);
+        std::unique_ptr<IntegerWrapper> ptr = std::make_unique<IntegerWrapper>(42);
         
         // This simulates a function that might fail
         risky_operation();
 
-        std::cout << "Using value: " << raw_ptr->get() << "\n";
+        std::cout << "Using value: " << ptr->get() << "\n";
 
         // TODO: If you use unique_ptr, you won't need this explicit delete
-        delete raw_ptr; 
+        
         std::cout << "Memory successfully freed.\n";
 
     } catch (const std::exception& e) {
